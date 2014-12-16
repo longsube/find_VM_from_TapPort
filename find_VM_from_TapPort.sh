@@ -16,7 +16,7 @@ line_cut=`echo $i | awk '{print $1}'`
 line_full=`echo $i | awk '{print $2}'`
 if [ "$port" == "$line_cut" ];
 then
-compute_id=neutron port-show $line_full | awk '/device_id/{print $4}'
+compute_id=`neutron port-show $line_full | awk '/device_id/{print $4}'`
 nova show $compute_id
 rm port.txt
 fi
